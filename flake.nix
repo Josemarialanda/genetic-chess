@@ -1,5 +1,5 @@
 {
-  description = "PKGNAME";
+  description = "genetic-chess";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
   inputs.flake-utils.url = "github:numtide/flake-utils";
@@ -10,10 +10,10 @@
         haskell = prev.haskell // {
           packageOverrides = hfinal: hprev:
             prev.haskell.packageOverrides hfinal hprev // {
-              PKGNAME = hfinal.callCabal2nix "PKGNAME" ./. { };
+              genetic-chess = hfinal.callCabal2nix "genetic-chess" ./. { };
             };
         };
-        PKGNAME = final.haskell.lib.compose.justStaticExecutables final.haskellPackages.PKGNAME;
+        genetic-chess = final.haskell.lib.compose.justStaticExecutables final.haskellPackages.genetic-chess;
       };
       perSystem = system:
         let
@@ -23,7 +23,7 @@
         {
           devShell = hspkgs.shellFor {
             withHoogle = true;
-            packages = p: [ p.PKGNAME ];
+            packages = p: [ p.genetic-chess ];
             buildInputs = [
               hspkgs.cabal-install
               hspkgs.haskell-language-server
@@ -32,7 +32,7 @@
               pkgs.bashInteractive
             ];
           };
-          defaultPackage = pkgs.PKGNAME;
+          defaultPackage = pkgs.genetic-chess;
         };
     in
     { inherit overlay; } // inputs.flake-utils.lib.eachDefaultSystem perSystem;

@@ -1,12 +1,12 @@
 cabal-version:   2.4
-name:            PKGNAME
+name:            genetic-chess
 version:         0
 license:         BSD-3-Clause
 build-type:      Simple
 license-file:    LICENSE
-author:          AUTHNAME
-maintainer:      AUTHNAME <EMAIL>
-copyright:       CURRENTYEAR AUTHNAME
+author:          José María Landa Chávez
+maintainer:      José María Landa Chávez <josemaria.landa@gmail.com>
+copyright:       2023 José María Landa Chávez
 tested-with:     GHC ==8.6.3 || ==8.8.3 || ==8.10.5
 extra-doc-files:
   CHANGELOG.md
@@ -15,10 +15,10 @@ extra-doc-files:
 -- category:
 -- description:     description
 -- synopsis:        one-line synopsis
--- homepage:        https://github.com/FIXME/PKGNAME#readme
+-- homepage:        https://github.com/FIXME/genetic-chess#readme
 -- source-repository head
 --   type:     git
---   location: git://github.com/FIXME/PKGNAME.git
+--   location: git://github.com/FIXME/genetic-chess.git
 
 common common-options
   build-depends:    base >=4.9 && <5
@@ -36,14 +36,14 @@ library
     , containers
     , mtl
 
-executable PKGNAME-exe
+executable genetic-chess-exe
   import:         common-options
   hs-source-dirs: app
   main-is:        Main.hs
-  build-depends:  PKGNAME
+  build-depends:  genetic-chess
   ghc-options:    -threaded -rtsopts -with-rtsopts=-N
 
-test-suite PKGNAME-test
+test-suite genetic-chess-test
   import:         common-options
   type:           exitcode-stdio-1.0
   hs-source-dirs: test
@@ -51,18 +51,18 @@ test-suite PKGNAME-test
   build-depends:
     , hspec
     , HUnit
-    , PKGNAME
+    , genetic-chess
     , QuickCheck
 
   ghc-options:    -threaded -rtsopts -with-rtsopts=-N
 
-benchmark PKGNAME-bench
+benchmark genetic-chess-bench
   import:         common-options
   type:           exitcode-stdio-1.0
   hs-source-dirs: bench
   main-is:        Main.hs
   build-depends:
     , criterion
-    , PKGNAME
+    , genetic-chess
 
   ghc-options:    -threaded -rtsopts -with-rtsopts=-N

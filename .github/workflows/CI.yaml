@@ -12,9 +12,9 @@ jobs:
       - uses: cachix/install-nix-action@v16
       - name: Build dependencies
         run: nix develop --command ghc --version
-      - name: Build PKGNAME
+      - name: Build genetic-chess
         run: nix build -L
-      - name: Build PKGNAME shell
+      - name: Build genetic-chess shell
         run: nix build -L '.#devShell.x86_64-linux'
 
   stack-build:

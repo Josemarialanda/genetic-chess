@@ -1,5 +1,5 @@
 packages:
   ./
 
-package PKGNAME
+package genetic-chess
   tests: True
