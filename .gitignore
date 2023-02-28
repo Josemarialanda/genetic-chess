@@ -28,3 +28,6 @@ cabal.project.local~
 
 # Ignore direnv
 .direnv/
+
+# Ignore Github CI
+.github/
